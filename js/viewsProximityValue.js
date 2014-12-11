@@ -1,6 +1,6 @@
-;(function ($) {
+(function ($, Drupal) {
   Drupal.behaviors.viewsProximityValue = {
-    attach: function (context, settings) {
+    attach: function () {
       if (!$('body').hasClass('page-admin-structure-views-nojs')) {
         $('#edit-options-source-change').hide();
       }
@@ -10,4 +10,4 @@
       });
     }
   };
-})(jQuery);
+})(jQuery, Drupal);

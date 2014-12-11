@@ -121,9 +121,7 @@ class geofield_handler_filter extends views_handler_filter_numeric {
       '#description' => t('How do you want to enter your origin point?'),
       '#options' => array(),
       '#attached' => array(
-        'js' => array(
-          drupal_get_path('module', 'geofield') . '/js/viewsProximityValue.js',
-        ),
+        'library' => array('geofield/geofield.views_proximity_value'),
       ),
       '#default_value' => $this->options['source'],
     );

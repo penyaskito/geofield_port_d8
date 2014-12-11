@@ -32,7 +32,7 @@
 
 })(navigator.geolocation, jQuery);
 
-;(function ($) {
+(function ($, Drupal) {
   Drupal.behaviors.geofieldGeolocation = {
     attach: function (context, settings) {
       // callback for getCurrentPosition
@@ -62,4 +62,4 @@
 
     }
   };
-})(jQuery);
+})(jQuery, Drupal);

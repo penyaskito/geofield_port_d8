@@ -1,0 +1,15 @@
+geofield.geolocation:
+  version: VERSION
+  js:
+    js/geolocation.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+geofield.views_proximity_value:
+  version: VERSION
+  js:
+    js/viewsProximityValue.js: {}
+  dependencies:
+    - core/jquery
