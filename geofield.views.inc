@@ -21,7 +21,7 @@ use Drupal\field\FieldStorageConfigInterface;
  *
  */
 function geofield_field_views_data(FieldStorageConfigInterface $field_storage) {
-  $data = field_views_field_default_views_data($field_storage);
+  $data = views_field_default_views_data($field_storage);
   $field_name = $field_storage->field_name;
 
   foreach ($data as $table_name => $table_data) {
