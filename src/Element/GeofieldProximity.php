@@ -52,7 +52,7 @@ class GeofieldProximity extends FormElement {
   public static function proximityProcess(&$element, FormStateInterface $form_state, &$complete_form) {
     $element['#attributes'] = array('class' => array('clearfix'));
     $element['#tree'] = TRUE;
-    $element['#attached']['css'] = array(drupal_get_path('module', 'geofield') . '/css/proximity-element.css');
+    $element['#attached']['library'][] = 'geofield/geofield.proximity_element';
 
     // Create the textfield for distance.
     $element['distance'] = array(

@@ -13,3 +13,9 @@ geofield.views_proximity_value:
     js/viewsProximityValue.js: {}
   dependencies:
     - core/jquery
+
+geofield.proximity_element:
+  version: VERSION
+  css:
+    component:
+      css/proximity-element.css: {}
