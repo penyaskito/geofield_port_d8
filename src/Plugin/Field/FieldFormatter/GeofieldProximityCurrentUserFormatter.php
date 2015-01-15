@@ -101,7 +101,7 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
 
       $line = new \LineString([$origin, $destination]);
       $output = $line->haversineLength();
-      $elements[$delta] = array('#markup' => round($unit * deg2rad($output), 2) . ' ' . $unit_string);
+      $elements[$delta] = array('#markup' => $this->t('@distance @unit away', ['@distance' => round($unit * deg2rad($output), 2), '@unit' => $unit_string]));
     }
 
     return $elements;
