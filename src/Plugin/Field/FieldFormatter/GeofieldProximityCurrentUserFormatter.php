@@ -94,10 +94,9 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
     $unit_string = $radius_options[$unit];
 
     $elements = array();
-    \Drupal::service('geophp.geophp');
 
     foreach ($items as $delta => $item) {
-      $destination = geoPHP::load($item->value);
+      $destination = \Drupal::service('geophp.geophp')->load($item->value);
       $origin = new \Point($user_object->get($geofield_name)->lon, $user_object->get($geofield_name)->lat);
 
       $line = new \LineString([$origin, $destination]);
