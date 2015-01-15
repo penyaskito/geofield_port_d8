@@ -79,6 +79,7 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
   public function settingsSummary() {
     $summary = array();
     $summary[] = t('User field: @field', array('@field' => $this->getSetting('current_user_field')));
+    $summary[] = t('Unit: @unit', array('@unit' => $this->getSetting('unit')));
     return $summary;
   }
 
