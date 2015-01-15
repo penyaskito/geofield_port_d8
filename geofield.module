@@ -150,7 +150,10 @@ function geofield_haversine($options = array()) {
   $formula = '( :earth_radius * ACOS( COS( RADIANS(:origin_latitude) ) * COS( RADIANS(:destination_latitude) ) * COS( RADIANS(:destination_longitude) - RADIANS(:origin_longitude) ) + SIN( RADIANS(:origin_latitude) ) * SIN( RADIANS(:destination_latitude) ) ) )';
 
   foreach ($options as $key => $option) {
-    if (is_numeric($option)) {
+    if ($option == NULL) {
+      $formula = '(1 > 2)';
+    }
+    elseif (is_numeric($option)) {
       $formula = str_replace(':' . $key, $option, $formula);
     }
     else {

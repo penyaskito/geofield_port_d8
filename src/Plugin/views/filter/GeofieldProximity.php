@@ -157,7 +157,14 @@ class GeofieldProximity extends Numeric {
    * {@inheritdoc}.
    */
   protected function opSimple($options) {
-    $this->query->addWhereExpression($this->options['group'], geofield_haversine($options) . ' ' . $this->operator . ' ' . $this->value['distance']);
+    if (($options['origin_latitude'] == NULL || $options['origin_longitude'] == NULL )) {
+      // We force to return 1 < 0, so there are no results.
+      $this->operator = '';
+      $this->query->addWhereExpression($this->options['group'], '1 < 0');
+    }
+    else {
+      $this->query->addWhereExpression($this->options['group'], geofield_haversine($options) . ' ' . $this->operator . ' ' . $this->value['distance']);
+    }
   }
 
   /**
