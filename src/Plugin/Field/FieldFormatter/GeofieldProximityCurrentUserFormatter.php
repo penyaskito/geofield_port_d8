@@ -64,7 +64,7 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
 
     $elements['unit'] = array(
       '#type' => 'select',
-      '#title' => t('Unit of Measure'),
+      '#title' => $this->t('Unit of Measure'),
       '#description' => '',
       '#options' => geofield_radius_options(),
       '#default_value' => $this->getSetting('unit'),
@@ -78,8 +78,8 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     $summary = array();
-    $summary[] = t('User field: @field', array('@field' => $this->getSetting('current_user_field')));
-    $summary[] = t('Unit: @unit', array('@unit' => $this->getSetting('unit')));
+    $summary[] = $this->t('User field: @field', array('@field' => $this->getSetting('current_user_field')));
+    $summary[] = $this->t('Unit: @unit', array('@unit' => $this->getSetting('unit')));
     return $summary;
   }
 
