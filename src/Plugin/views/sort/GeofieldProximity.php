@@ -18,7 +18,7 @@ use Drupal\views\ViewExecutable;
  *
  * @ingroup views_field_handlers
  *
- * @PluginID("geofield_proximity")
+ * @ViewsSort("geofield_proximity")
  */
 class GeofieldProximity extends SortPluginBase {
 
@@ -71,7 +71,7 @@ class GeofieldProximity extends SortPluginBase {
         'destination_longitude' => $lon_alias,
         'earth_radius' => GEOFIELD_KILOMETERS,
       );
-      $this->query->add_orderby(NULL, geofield_haversine($haversine_options), $this->options['order'], $this->tableAlias . '_geofield_distance');
+      $this->query->addOrderBy(NULL, geofield_haversine($haversine_options), $this->options['order'], $this->tableAlias . '_geofield_distance');
     }
   }
 
@@ -89,19 +89,19 @@ class GeofieldProximity extends SortPluginBase {
       '#default_value' => $this->options['source'],
     );
 
-    $proximityHandlers = geofield_proximity_views_handlers();
-    foreach ($proximityHandlers as $key => $handler) {
-      $form['source']['#options'][$key] = $handler['name'];
+    foreach ($this->proximityManager->getDefinitions() as $key => $handler) {
+      $form['source']['#options'][$key] = $handler['admin_label'];
       $proximityPlugin = $this->proximityManager->createInstance($key);
       $proximityPlugin->buildOptionsForm($form, $form_state, $this);
     }
+
   }
 
   /**
    * {@inheritdoc}.
    */
   function validateOptionsForm(&$form, FormStateInterface $form_state) {
-    $proximityPlugin = $this->proximityManager->createInstance($form_state['values']['options']['source']);
+    $proximityPlugin = $this->proximityManager->createInstance($form_state->getValue(['options', 'source']));
     $proximityPlugin->validateOptionsForm($form, $form_state, $this);
   }
 }
