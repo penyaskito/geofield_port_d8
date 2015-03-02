@@ -72,7 +72,7 @@ class GeofieldProximityCurrentUser extends GeofieldProximityBase {
     if (!empty($geofield_name)) {
       $field_data = $user_object->get($geofield_name);
 
-      if ($field_data != FALSE) {
+      if (!$field_data->isEmpty()) {
         return array(
           'latitude' => $field_data[0]->lat,
           'longitude' => $field_data[0]->lon,

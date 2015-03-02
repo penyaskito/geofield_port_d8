@@ -22,7 +22,7 @@ use Drupal\field\FieldStorageConfigInterface;
  */
 function geofield_field_views_data(FieldStorageConfigInterface $field_storage) {
   $data = views_field_default_views_data($field_storage);
-  $field_name = $field_storage->field_name;
+  $field_name = $field_storage->getName();
 
   foreach ($data as $table_name => $table_data) {
     if (isset($table_data[$field_name])) {
