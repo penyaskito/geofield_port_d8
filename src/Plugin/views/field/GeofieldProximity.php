@@ -8,10 +8,8 @@
 namespace Drupal\geofield\Plugin\views\field;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\Plugin\views\display\DisplayPluginBase;
-use Drupal\views\Plugin\views\field\Numeric;
+use Drupal\views\Plugin\views\field\NumericField;
 use Drupal\views\ResultRow;
-use Drupal\views\ViewExecutable;
 
 /**
  * Field handler to render a Geofield proximity in Views.
@@ -20,7 +18,7 @@ use Drupal\views\ViewExecutable;
  *
  * @ViewsField("geofield_proximity")
  */
-class GeofieldProximity extends Numeric {
+class GeofieldProximity extends NumericField {
 
   /**
    * @var \Drupal\geofield\Plugin\GeofieldProximityManager.
