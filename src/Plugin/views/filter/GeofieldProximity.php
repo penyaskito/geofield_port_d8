@@ -277,6 +277,11 @@ class GeofieldProximity extends NumericFilter {
    * {@inheritdoc}
    */
   public function acceptExposedInput($input) {
+    // If the field is not exposed we don't need to check anything.
+    if (empty($this->options['exposed'])) {
+      return TRUE;
+    }
+
     if (!(isset($this->options['expose']) && isset($this->options['expose']['identifier']))) {
       return FALSE;
     }
