@@ -282,7 +282,7 @@ class GeofieldProximity extends NumericFilter {
     }
 
     $input_id = $this->options['expose']['identifier'];
-    if (empty($input[$input_id]) || $input[$input_id]['distance'] === '' || $input[$input_id]['origin'] === '') {
+    if (empty($input_id) || empty($input[$input_id]) || $input[$input_id]['distance'] === '' || $input[$input_id]['origin'] === '') {
       return FALSE;
     }
 
