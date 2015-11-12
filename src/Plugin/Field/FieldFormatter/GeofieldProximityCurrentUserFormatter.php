@@ -86,7 +86,7 @@ class GeofieldProximityCurrentUserFormatter extends FormatterBase {
   /**
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items) {
+  public function viewElements(FieldItemListInterface $items, $langcode) {
     $user_object = User::load(\Drupal::currentUser()->id());
     $geofield_name = $this->getSetting('current_user_field');
     $unit = $this->getSetting('unit');
